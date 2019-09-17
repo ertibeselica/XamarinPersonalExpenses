@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels ="clr-namespace:PersonalExpenses.ViewModels"
+             x:Class="PersonalExpenses.Views.LogInPage"
+             Title="LogIn Page">
+    <ContentPage.BindingContext>
+        <viewModels:UserViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry IsEnabled="True" Placeholder="Shkruani Username" Text="{Binding User.Username}" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Entry IsEnabled="True" Placeholder="Shkruani fjalekalimin" Text="{Binding User.Password}" VerticalOptions="Center" HorizontalOptions="Center" Margin="50,25,50"/>
+            <Button Text="Log In" Command="{Binding GoToHomePageCommand}"/>
+            <Button Text="Regjistrohu" Command="{Binding }"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
