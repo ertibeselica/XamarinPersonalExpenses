@@ -11,12 +11,12 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout BackgroundColor="White" Margin="50,250,50,50">
-            <Entry IsEnabled="True" Placeholder="Shkruani Username" Text="{Binding User.Username}" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Entry IsEnabled="True" Placeholder="Shkruani fjalekalimin" Text="{Binding User.Password}" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Entry x:Name="usernameEntry" IsEnabled="True" Placeholder="Shkruani Username" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Entry x:Name="passwordEntry" IsPassword="True" IsEnabled="True" Placeholder="Shkruani fjalekalimin"  VerticalOptions="Center" HorizontalOptions="Center"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-            <Button Text="Log In" Command="{Binding GoToHomePageCommand}"  HorizontalOptions="EndAndExpand" BackgroundColor="Yellow" TextColor="Black" HeightRequest="75" WidthRequest="125"/>
-                <Button Text="Regjistrohu" Command="{Binding GoToRegistrationCommand}" HorizontalOptions="StartAndExpand" BackgroundColor="Orange" TextColor="Black" HeightRequest="75" WidthRequest="125"/>
+            <Button Text="Log In" x:Name="loginBtn" Clicked="LoginBtn_Clicked"  HorizontalOptions="EndAndExpand" BackgroundColor="Yellow" TextColor="Black" HeightRequest="75" WidthRequest="125"/>
+                <Button Text="Regjistrohu" x:Name="registerBtn" Clicked="RegisterBtn_Clicked" HorizontalOptions="StartAndExpand" BackgroundColor="Orange" TextColor="Black" HeightRequest="75" WidthRequest="125"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

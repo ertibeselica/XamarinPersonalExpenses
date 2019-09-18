@@ -27,36 +27,36 @@ namespace PersonalExpenses.ViewModels
             set { user = value; }
         }
 
-        public UserViewModel()
-        {
-            GoToHomePageCommand = new Command<User>(GoToHomeAsync);            
+        //public UserViewModel()
+        //{
+        //    GoToHomePageCommand = new Command<User>(GoToHomeAsync);            
             
-        }
+        //}
 
-        public virtual async void GoToHomeAsync(User user)
-        {
-            if (await ValidateAsync(user))
-            {
-                Application.Current.Properties["userId"] = user.UserId;                
-                //await Navigation.PushAsync(new HomePage());
-                App.Current.MainPage = new HomePage();
-            }
-        }
-        protected virtual async Task<bool> ValidateAsync<T>(T data)
-            where T : class
-        {
-            if (data is User)
-            {
-                return await ValidateLogin(data as User);
-            }
+        //public virtual async void GoToHomeAsync()
+        //{
+        //    if (await ValidateLogin())
+        //    {
+        //        Application.Current.Properties["userId"] = user.UserId;                
+        //        //await Navigation.PushAsync(new HomePage());
+        //        App.Current.MainPage = new HomePage();
+        //    }
+        //}
+        //protected virtual async Task<bool> ValidateAsync<T>(T data)
+        //    where T : class
+        //{
+        //    if (data is User)
+        //    {
+        //        return await ValidateLogin(data as User);
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
-        public virtual async Task<bool> ValidateLogin(User user)
+        public virtual async Task<bool> ValidateLogin(string username,string password)
         {    
             httpClient = new HttpClient();
-            var uri = new Uri("");
+            var uri = "http://localhost:50562/api/users?username={username}&password={password}";
             var response = await httpClient.GetAsync(uri);
             if (response.IsSuccessStatusCode)
             {
@@ -65,14 +65,14 @@ namespace PersonalExpenses.ViewModels
 
             }
 
-            if (user.Username==null || user.Username!=useri.Username)
+            if (username==null || username!=useri.Username)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Kredencialet nuk jane te sakta", "Cancel");
+                await Application.Current.MainPage.DisplayAlert("Error", "Username nuk eshte te sakta", "Cancel");
                 return false;
             }
-            else if (user.Password==null || user.Password!=useri.Password )
+            else if (password == null || password!=useri.Password )
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Kredencialet nuk jane te sakta", "Cancel");
+                await Application.Current.MainPage.DisplayAlert("Error", "Passwordi nuk eshte i sakta", "Cancel");
                 return false;
             }
             return true;

@@ -18,5 +18,10 @@ namespace PersonalExpenses.Views
 
             InitializeComponent();
         }
+
+        private async void GoToAddIncome_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NavigationPage(new AddIncome()));
+        }
     }
 }

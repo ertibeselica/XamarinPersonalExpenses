@@ -6,9 +6,8 @@
         <StackLayout>
             <Picker x:Name="ShpenzimetPicker" Title="Zgjidh Shpenzimin">
                 <Picker.Items>
-                    <x:String>Rroba</x:String>
-                    <x:String>Rryme</x:String>
-                    <x:String>Uje</x:String>
+                    <x:String>Rroga</x:String>
+                    <x:String>Qiraja</x:String>                    
                 </Picker.Items>                
             </Picker>
             <Entry x:Name="shumaEntry" Keyboard="Numeric" Placeholder="Shkruani shumen e shpenzimit"/>

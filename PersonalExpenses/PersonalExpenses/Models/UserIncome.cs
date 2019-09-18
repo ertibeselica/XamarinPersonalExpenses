@@ -6,35 +6,15 @@ namespace PersonalExpenses.Models
 {
     public class UserIncome
     {
-        private User user;
+        public int UserId { get; set; }
+        public string IncomeName { get; set; }
+        public decimal? Amount { get; set; }
 
-        public User User
+        public UserIncome(int userId, string incomename,decimal amount)
         {
-            get { return user; }
-            set { user = value; }
-        }
-
-        private Income income;
-
-        public Income Income
-        {
-            get { return income; }
-            set { income = value; }
-        }
-
-        private decimal amount;
-
-        public decimal Amount
-        {
-            get { return amount; }
-            set { amount = value; }
-        }
-
-        public UserIncome(User user,Income income,decimal amount)
-        {
-            User = user;
-            Income = income;
-            Amount = amount;            
+            UserId = userId;
+            IncomeName = incomename;
+            Amount = amount;
         }
     }
 }
