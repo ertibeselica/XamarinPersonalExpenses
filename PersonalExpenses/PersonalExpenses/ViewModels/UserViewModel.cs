@@ -18,6 +18,7 @@ namespace PersonalExpenses.ViewModels
         public ICommand GoToHomePageCommand { get; protected set; }
         LogInPage loginPage;
         HttpClient httpClient;
+        User useri;
         private User user;
 
         public User User
@@ -28,18 +29,17 @@ namespace PersonalExpenses.ViewModels
 
         public UserViewModel()
         {
-            GoToHomePageCommand = new Command<User>(GoToHomeAsync);
-            user = new User();
+            GoToHomePageCommand = new Command<User>(GoToHomeAsync);            
             
         }
 
-        public virtual async Task GoToHomeAsync(User user)
+        public virtual async void GoToHomeAsync(User user)
         {
             if (await ValidateAsync(user))
             {
-                Application.Current.Properties["userId"] = user.UserId;
-                Application.Current.Properties["username"] = user.Username;
-                await Navigation.PushAsync(new HomePage());
+                Application.Current.Properties["userId"] = user.UserId;                
+                //await Navigation.PushAsync(new HomePage());
+                App.Current.MainPage = new HomePage();
             }
         }
         protected virtual async Task<bool> ValidateAsync<T>(T data)
@@ -54,41 +54,31 @@ namespace PersonalExpenses.ViewModels
         }
 
         public virtual async Task<bool> ValidateLogin(User user)
-        {
-           
-            
-            if (user.Username==null || )
-            {                        
-                return false;
-            }
-            else if (user.Password==null || )
-            {
-                return false;
-            }
-            return true;
-        }
-
-        public async Task<User> GetUserAsync(User user)
-        {
-            
+        {    
             httpClient = new HttpClient();
             var uri = new Uri("");
             var response = await httpClient.GetAsync(uri);
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var useri = JsonConvert.DeserializeObject<User>(content);
-                return useri;
+                useri = JsonConvert.DeserializeObject<User>(content);
+
             }
 
-            else
+            if (user.Username==null || user.Username!=useri.Username)
             {
-                return null;
+                await Application.Current.MainPage.DisplayAlert("Error", "Kredencialet nuk jane te sakta", "Cancel");
+                return false;
             }
-
-            
-            
+            else if (user.Password==null || user.Password!=useri.Password )
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Kredencialet nuk jane te sakta", "Cancel");
+                return false;
+            }
+            return true;
         }
+
+        
 
     }
 }

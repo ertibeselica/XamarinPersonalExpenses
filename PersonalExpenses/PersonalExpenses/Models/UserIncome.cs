@@ -29,5 +29,12 @@ namespace PersonalExpenses.Models
             get { return amount; }
             set { amount = value; }
         }
+
+        public UserIncome(User user,Income income,decimal amount)
+        {
+            User = user;
+            Income = income;
+            Amount = amount;            
+        }
     }
 }

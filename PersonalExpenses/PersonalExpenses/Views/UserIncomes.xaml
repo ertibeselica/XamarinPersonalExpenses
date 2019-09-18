@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalExpenses.Views.UserIncomes">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand"  VerticalOptions="StartAndExpand">
+            <!--<ListView x:Name="BusRoutes" ItemTapped="BusRoutes_ItemTapped">-->
+            <!--<ListView.Header>-->
+
+            <Grid BackgroundColor="Black" HeightRequest="100">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="3.5*"></ColumnDefinition>                    
+
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="qytetiNga" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="LightBlue" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" x:FieldModifier="Public"/>
+                <Label x:Name="qytetiDestinacion" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" BackgroundColor="LightBlue" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" x:FieldModifier="Public"/>
+                <Label Text="Nisja" HorizontalOptions="Fill" Grid.Row="1"  Grid.Column="0"   FontSize="Medium" FontAttributes="Bold" BackgroundColor="Red" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
+                <Label Text="Arritja " HorizontalOptions="Fill" Grid.Row="1"  Grid.Column="1"  FontSize="Medium" FontAttributes="Bold" BackgroundColor="Red" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
+                <Label Text="Agjensioni" HorizontalOptions="Fill" Grid.Row="1"  Grid.Column="2"  FontSize="Medium"  FontAttributes="Bold" BackgroundColor="Red" TextColor="White" HorizontalTextAlignment="Start" Margin="1" />
+                <Label Text="Cmimi" HorizontalOptions="Fill" Grid.Row="1"  Grid.Column="3"  FontSize="Medium" FontAttributes="Bold" BackgroundColor="Red" TextColor="White" HorizontalTextAlignment="Center" Margin="1"/>
+
+            </Grid>
+
+            <!--</ListView.Header>-->
+            <!--ItemTapped="BusRoutes_ItemTapped"-->
+            <ListView x:Name="ListUserIncomes" x:FieldModifier="Public">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+
+                            <Grid BackgroundColor="Yellow">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>                                    
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text ="{Binding UserIncomes.User.UserName}"  Grid.Column="0" Margin="20,0,0,0" FontAttributes="Bold" VerticalTextAlignment="Center" ></Label>
+                                <Label Text="{Binding UserIncomes.Income.IncomeName}"  Grid.Column="1" Margin="20,0,0,0" FontAttributes="Bold" VerticalTextAlignment="Center" ></Label>
+                                <Label Text="{Binding UserIncomes.Income.Amount, StringFormat='€\{0}' }"  Grid.Column="2" Margin="20,0,0,0" FontAttributes="Bold" VerticalTextAlignment="Center" ></Label>
+
+                            </Grid>
+
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

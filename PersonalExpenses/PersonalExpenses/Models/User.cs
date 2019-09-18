@@ -54,7 +54,10 @@ namespace PersonalExpenses.Models
             set { balance = value; }
         }
 
-
+        public User(int userid)
+        {
+            UserId = userid;
+        }
 
 
 

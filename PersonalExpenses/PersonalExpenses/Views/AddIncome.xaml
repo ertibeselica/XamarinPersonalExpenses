@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalExpenses.Views.AddIncome">
+    <ContentPage.Content>
+        <StackLayout>
+            <Picker x:Name="ShpenzimetPicker" Title="Zgjidh Shpenzimin">
+                <Picker.Items>
+                    <x:String>Rroba</x:String>
+                    <x:String>Rryme</x:String>
+                    <x:String>Uje</x:String>
+                </Picker.Items>                
+            </Picker>
+            <Entry x:Name="shumaEntry" Keyboard="Numeric" Placeholder="Shkruani shumen e shpenzimit"/>
+            <Button x:Name="ShtoShpenzim" Clicked="ShtoShpenzim_Clicked" Text="Shto Shpenzimin"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

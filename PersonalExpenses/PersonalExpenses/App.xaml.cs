@@ -14,7 +14,7 @@ namespace PersonalExpenses
             InitializeComponent();
 
 
-            MainPage = new MainPage();
+            MainPage = new LogInPage();
         }
 
         protected override void OnStart()

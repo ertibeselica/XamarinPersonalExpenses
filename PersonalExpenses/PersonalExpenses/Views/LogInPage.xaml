@@ -3,16 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels ="clr-namespace:PersonalExpenses.ViewModels"
              x:Class="PersonalExpenses.Views.LogInPage"
-             Title="LogIn Page">
+             Title="LogIn Page"
+             BackgroundImage="money.jpg">
     <ContentPage.BindingContext>
         <viewModels:UserViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout BackgroundColor="White" Margin="50,250,50,50">
             <Entry IsEnabled="True" Placeholder="Shkruani Username" Text="{Binding User.Username}" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Entry IsEnabled="True" Placeholder="Shkruani fjalekalimin" Text="{Binding User.Password}" VerticalOptions="Center" HorizontalOptions="Center" Margin="50,25,50"/>
-            <Button Text="Log In" Command="{Binding GoToHomePageCommand}"/>
-            <Button Text="Regjistrohu" Command="{Binding }"/>
+            <Entry IsEnabled="True" Placeholder="Shkruani fjalekalimin" Text="{Binding User.Password}" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+            <Button Text="Log In" Command="{Binding GoToHomePageCommand}"  HorizontalOptions="EndAndExpand" BackgroundColor="Yellow" TextColor="Black" HeightRequest="75" WidthRequest="125"/>
+                <Button Text="Regjistrohu" Command="{Binding GoToRegistrationCommand}" HorizontalOptions="StartAndExpand" BackgroundColor="Orange" TextColor="Black" HeightRequest="75" WidthRequest="125"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
