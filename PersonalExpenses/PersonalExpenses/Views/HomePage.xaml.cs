@@ -21,7 +21,7 @@ namespace PersonalExpenses.Views
 
         private async void GoToAddIncome_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NavigationPage(new AddIncome()));
+            await Navigation.PushAsync(new NavigationPage(new AddIncomePage()));
         }
 
         private async void ShowIncomes_Clicked(object sender, EventArgs e)
