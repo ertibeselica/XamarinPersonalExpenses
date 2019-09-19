@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PersonalExpenses.Views.HomePage">
+             x:Class="PersonalExpenses.Views.HomePage"
+             Title="Ballina">
     <ContentPage.Content>
         <StackLayout>
             <Button HorizontalOptions="CenterAndExpand" x:Name="GoToAddIncome" Text="Shtoni te hyra" Margin="25,50,25,25" Clicked="GoToAddIncome_Clicked"/>
             <Button HorizontalOptions="CenterAndExpand" x:Name="GoToAddExpense" Text="Shtoni shpenzime" Margin="25,50,25,25"/>
-            <Button HorizontalOptions="CenterAndExpand" x:Name="ShowIncomes" Text="Shfaqni te hyrat" Margin="25,50,25,25"/>
-            <Button HorizontalOptions="CenterAndExpand" x:Name="ShowShpenzimet" Text="Shfaqni shpenzimet" Margin="25,50,25,25"/>
+            <Button HorizontalOptions="CenterAndExpand" x:Name="ShowIncomes" Clicked="ShowIncomes_Clicked" Text="Shfaqni te hyrat" Margin="25,50,25,25"/>
+            <Button HorizontalOptions="CenterAndExpand" x:Name="ShowShpenzimet" Clicked="ShowShpenzimet_Clicked" Text="Shfaqni shpenzimet" Margin="25,50,25,25"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

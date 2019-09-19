@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalExpenses.Views.UserExpensesPage"
+             Title="Lista e shpenzimeve">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid BackgroundColor="Orange" HeightRequest="100">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+                <Label Text="Perdoruesi" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="Large"/>
+                <Label Text="Shpenzimi" Grid.Row="0" Grid.Column="1" FontAttributes="Bold" FontSize="Large"/>
+                <Label Text="Vlera e shpenzimit" Grid.Row="0" Grid.Column="2" FontAttributes="Bold" FontSize="Large"/>
+
+
+
+
+            </Grid>
+            <ListView x:Name="ListUserExpenses" x:FieldModifier="Public">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+
+                            <Grid BackgroundColor="LightBlue">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text ="{Binding Username}"  Grid.Column="0" Margin="20,0,0,0" FontAttributes="Bold" VerticalTextAlignment="Center" ></Label>
+                                <Label Text="{Binding ExpenseName}"  Grid.Column="1" Margin="20,0,0,0" FontAttributes="Bold" VerticalTextAlignment="Center" ></Label>
+                                <Label Text="{Binding ExpenseValue, StringFormat='€\{0}' }"  Grid.Column="2" Margin="20,0,0,0" FontAttributes="Bold" VerticalTextAlignment="Center" ></Label>
+
+                            </Grid>
+
+
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

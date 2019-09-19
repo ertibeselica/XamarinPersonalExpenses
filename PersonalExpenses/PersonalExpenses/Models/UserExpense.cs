@@ -5,29 +5,14 @@ using System.Text;
 namespace PersonalExpenses.Models
 {
     public class UserExpense
-    {
-        private User user;
+    {        
+        public string Username { get; set; }
+        public int UserId { get; set; }
+        public int ExpenseId { get; set; }
+        public string ExpenseName { get; set; }
+        public Nullable<decimal> ExpenseValue { get; set; }
 
-        public User User
-        {
-            get { return user; }
-            set { user = value; }
-        }
-
-        private Expense expense;
-
-        public Expense Expense
-        {
-            get { return expense; }
-            set { expense = value; }
-        }
-
-        private decimal expenseValue;
-
-        public decimal ExpenseValue
-        {
-            get { return expenseValue; }
-            set { expenseValue = value; }
-        }
+        public virtual Income Income { get; set; }
+        public virtual User User { get; set; }
     }
 }

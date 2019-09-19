@@ -6,15 +6,14 @@ namespace PersonalExpenses.Models
 {
     public class UserIncome
     {
+        public int IncomeUserId { get; set; }
+        public string Username { get; set; }
         public int UserId { get; set; }
+        public int IncomeId { get; set; }
         public string IncomeName { get; set; }
-        public decimal? Amount { get; set; }
+        public Nullable<decimal> Amount { get; set; }
 
-        public UserIncome(int userId, string incomename,decimal amount)
-        {
-            UserId = userId;
-            IncomeName = incomename;
-            Amount = amount;
-        }
+        public virtual Income Income { get; set; }
+        public virtual User User { get; set; }
     }
 }

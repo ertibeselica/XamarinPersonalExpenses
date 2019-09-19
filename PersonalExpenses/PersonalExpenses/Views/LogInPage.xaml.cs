@@ -52,6 +52,7 @@ namespace PersonalExpenses.Views
                     await Application.Current.MainPage.DisplayAlert("Error", "Diqka Shkoi Gabim", "Cancel");
                 useri = JsonConvert.DeserializeObject<User>(content);
                 Application.Current.Properties["userId"] = useri.UserId;
+                Application.Current.Properties["username"] = useri.Username;
 
             }
 

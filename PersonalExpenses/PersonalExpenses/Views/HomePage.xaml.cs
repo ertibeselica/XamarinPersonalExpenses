@@ -23,5 +23,15 @@ namespace PersonalExpenses.Views
         {
             await Navigation.PushAsync(new NavigationPage(new AddIncome()));
         }
+
+        private async void ShowIncomes_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserIncomesPage());
+        }
+
+        private async void ShowShpenzimet_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserExpensesPage());
+        }
     }
 }
