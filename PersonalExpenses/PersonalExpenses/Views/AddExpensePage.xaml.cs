@@ -1,11 +1,11 @@
-﻿using Newtonsoft.Json;
-using PersonalExpenses.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using PersonalExpenses.Models;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,42 +13,39 @@ using Xamarin.Forms.Xaml;
 namespace PersonalExpenses.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddIncomePage : ContentPage
+    public partial class AddExpensePage : ContentPage
     {
-        HttpClient httpClient;
-        public int UserId { get; set; }
-
-        public AddIncomePage()
+        public AddExpensePage()
         {
             InitializeComponent();
         }
 
-        private async void ShtoHyjre_Clicked(object sender, EventArgs e)
+        private async Task ShtoShpenzim_ClickedAsync(object sender, EventArgs e)
         {
             int userId = (int)Application.Current.Properties["userId"];
-            int incomeId = teHyratPicker.SelectedIndex+1;
-            decimal amount = Convert.ToDecimal(shumaEntry.Text);
+            int expenseId = shpenzimetPicker.SelectedIndex + 1;
+            decimal expenseValue = Convert.ToDecimal(shpenzimiEntry.Text);
 
-            UserIncomeVM userInc = new UserIncomeVM();
+            UserExpenseVM userInc = new UserExpenseVM();
             userInc.UserId = userId;
-            userInc.IncomeId = incomeId;
-            userInc.Amount = amount;
+            userInc.ExpenseId = expenseId;
+            userInc.ExpenseValue = expenseValue;
 
 
 
-            if (teHyratPicker.SelectedItem != null)
+            if (shpenzimetPicker.SelectedItem != null)
             {
 
-                httpClient = new HttpClient();
+                HttpClient httpClient = new HttpClient();
                 var json = JsonConvert.SerializeObject(userInc);
-                var uri = new Uri("https://personalexpensesapi.conveyor.cloud/api/usersincomes");
+                var uri = new Uri("https://personalexpensesapi.conveyor.cloud/api/usersexpens");
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await httpClient.PostAsync(uri, content);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    shumaEntry.Text = null;
-                    await DisplayAlert("Sukses", "E hyra u shtua me sukses", "OK");
+                    shpenzimiEntry.Text = null;
+                    await DisplayAlert("Sukses", "Shpenzimi u shtua me sukses", "OK");
                     await Navigation.PopAsync();
                 }
 
@@ -58,11 +55,6 @@ namespace PersonalExpenses.Views
                 }
 
             }
-
-
-
-
         }
     }
 }
-

@@ -4,7 +4,7 @@
              x:Class="PersonalExpenses.Views.AddIncomePage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="teHyratPicker" Title="Zgjidh Shpenzimin">
+            <Picker x:Name="teHyratPicker" Title="Zgjidh te hyren">
                 <Picker.Items>
                     <x:String>Rroga</x:String>
                     <x:String>Qiraja</x:String>                    
