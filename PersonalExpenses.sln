@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalExpenses.Android", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalExpenses.iOS", "PersonalExpenses\PersonalExpenses.iOS\PersonalExpenses.iOS.csproj", "{27E01AC4-146A-4F5D-9504-6E610E6F3A75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonalExpenses", "PersonalExpenses\PersonalExpenses\PersonalExpenses.csproj", "{FE6B353D-FA6C-4411-8D30-3E4D6616C5CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalExpenses", "PersonalExpenses\PersonalExpenses\PersonalExpenses.csproj", "{FE6B353D-FA6C-4411-8D30-3E4D6616C5CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,7 +38,6 @@ Global
 		{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
 		{27E01AC4-146A-4F5D-9504-6E610E6F3A75}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{27E01AC4-146A-4F5D-9504-6E610E6F3A75}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 		{27E01AC4-146A-4F5D-9504-6E610E6F3A75}.Debug|Any CPU.Deploy.0 = Debug|iPhoneSimulator
 		{27E01AC4-146A-4F5D-9504-6E610E6F3A75}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{27E01AC4-146A-4F5D-9504-6E610E6F3A75}.Debug|iPhone.Build.0 = Debug|iPhone

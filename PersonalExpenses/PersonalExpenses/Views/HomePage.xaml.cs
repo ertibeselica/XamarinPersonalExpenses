@@ -33,5 +33,10 @@ namespace PersonalExpenses.Views
         {
             await Navigation.PushAsync(new UserExpensesPage());
         }
+
+        private async void GoToAddExpense_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddExpensePage());
+        }
     }
 }

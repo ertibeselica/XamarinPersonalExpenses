@@ -20,7 +20,7 @@ namespace PersonalExpenses.Views
             InitializeComponent();
         }
 
-        private async Task ShtoShpenzim_ClickedAsync(object sender, EventArgs e)
+        private async void ShtoShpenzim_Clicked(object sender, EventArgs e)
         {
             int userId = (int)Application.Current.Properties["userId"];
             int expenseId = shpenzimetPicker.SelectedIndex + 1;
@@ -53,7 +53,6 @@ namespace PersonalExpenses.Views
                 {
                     await DisplayAlert("Failed", "My Json " + json, "OK");
                 }
-
             }
         }
     }

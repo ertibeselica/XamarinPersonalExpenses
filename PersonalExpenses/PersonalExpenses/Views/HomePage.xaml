@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Button HorizontalOptions="CenterAndExpand" x:Name="GoToAddIncome" Text="Shtoni te hyra" Margin="25,50,25,25" Clicked="GoToAddIncome_Clicked"/>
-            <Button HorizontalOptions="CenterAndExpand" x:Name="GoToAddExpense" Text="Shtoni shpenzime" Margin="25,50,25,25"/>
+            <Button HorizontalOptions="CenterAndExpand" x:Name="GoToAddExpense" Text="Shtoni shpenzime" Clicked="GoToAddExpense_Clicked" Margin="25,50,25,25"/>
             <Button HorizontalOptions="CenterAndExpand" x:Name="ShowIncomes" Clicked="ShowIncomes_Clicked" Text="Shfaqni te hyrat" Margin="25,50,25,25"/>
             <Button HorizontalOptions="CenterAndExpand" x:Name="ShowShpenzimet" Clicked="ShowShpenzimet_Clicked" Text="Shfaqni shpenzimet" Margin="25,50,25,25"/>
         </StackLayout>
