@@ -9,6 +9,7 @@ using PersonalExpenses.Models;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace PersonalExpenses.Views
 {
@@ -21,20 +22,14 @@ namespace PersonalExpenses.Views
         }
 
         private async void ShtoShpenzim_Clicked(object sender, EventArgs e)
-        {
-            int userId = (int)Application.Current.Properties["userId"];
-            int expenseId = shpenzimetPicker.SelectedIndex + 1;
-            decimal expenseValue = Convert.ToDecimal(shpenzimiEntry.Text);
-
-            UserExpenseVM userInc = new UserExpenseVM();
-            userInc.UserId = userId;
-            userInc.ExpenseId = expenseId;
-            userInc.ExpenseValue = expenseValue;
-
-
+        {                
 
             if (shpenzimetPicker.SelectedItem != null)
             {
+                UserExpenseVM userInc = new UserExpenseVM();
+                userInc.UserId = (int)Application.Current.Properties["userId"];
+                userInc.ExpenseId = shpenzimetPicker.SelectedIndex + 1;
+                userInc.ExpenseValue = Convert.ToDecimal(shpenzimiEntry.Text);
 
                 HttpClient httpClient = new HttpClient();
                 var json = JsonConvert.SerializeObject(userInc);
@@ -45,13 +40,14 @@ namespace PersonalExpenses.Views
                 if (response.IsSuccessStatusCode)
                 {
                     shpenzimiEntry.Text = null;
+                    Vibration.Vibrate();                   
                     await DisplayAlert("Sukses", "Shpenzimi u shtua me sukses", "OK");
                     await Navigation.PopAsync();
                 }
 
                 else
                 {
-                    await DisplayAlert("Failed", "My Json " + json, "OK");
+                    await DisplayAlert("DESHTOI", "Ka deshtuar " + json, "OK");
                 }
             }
         }

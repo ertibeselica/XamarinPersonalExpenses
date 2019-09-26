@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using PersonalExpenses.Views;
+using PersonalExpenses.Models;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace PersonalExpenses
@@ -12,9 +13,8 @@ namespace PersonalExpenses
         public App()
         {
             InitializeComponent();
-
-
             MainPage = new NavigationPage(new LogInPage());
+
         }
 
         protected override void OnStart()

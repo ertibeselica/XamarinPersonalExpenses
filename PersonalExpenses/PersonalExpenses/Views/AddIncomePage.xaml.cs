@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace PersonalExpenses.Views
 {
@@ -48,7 +49,11 @@ namespace PersonalExpenses.Views
                 if (response.IsSuccessStatusCode)
                 {
                     shumaEntry.Text = null;
+                    Vibration.Vibrate();
+                    await Flashlight.TurnOnAsync();
                     await DisplayAlert("Sukses", "E hyra u shtua me sukses", "OK");
+                    await Task.Delay(1000);
+                    await Flashlight.TurnOffAsync();
                     await Navigation.PopAsync();
                 }
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,27 +18,32 @@ namespace PersonalExpenses.Views
 	{
         HttpClient httpClient;
         User useri;
+        private SQLite.SQLiteConnection _sqliteconnection;
         public LogInPage ()
 		{
 			InitializeComponent ();
-            //BindingContext = (UserViewModel)BindingContext;
-            
-		}
+            _sqliteconnection = DependencyService.Get<IDBInterface>().GetConnection();
+            _sqliteconnection.CreateTable<About>();
+        }
 
         private async void LoginBtn_Clicked(object sender, EventArgs e)
         {
             
             if (await ValidateLogin(usernameEntry.Text, passwordEntry.Text))
             {
+                await Flashlight.TurnOnAsync();
+                await Task.Delay(500);
+                await Flashlight.TurnOffAsync();
                 await Navigation.PushAsync(new HomePage());
-                //App.Current.MainPage = new HomePage();
+                
+                
             }
         }
 
-        private void RegisterBtn_Clicked(object sender, EventArgs e)
-        {
+        //private void RegisterBtn_Clicked(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
         public virtual async Task<bool> ValidateLogin(string username, string password)
         {
@@ -51,8 +56,27 @@ namespace PersonalExpenses.Views
                 if(content==null)
                     await Application.Current.MainPage.DisplayAlert("Error", "Diqka Shkoi Gabim", "Cancel");
                 useri = JsonConvert.DeserializeObject<User>(content);
+
+                //Perdoren pergjate gjithe aplikacionit
                 Application.Current.Properties["userId"] = useri.UserId;
                 Application.Current.Properties["username"] = useri.Username;
+
+
+
+
+                #region SQLITE
+                About ab = new About { AboutDescription = "By IDEAL MUSLIU" };
+                int? x;
+                try
+                {
+                    x = _sqliteconnection.Insert(ab);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                #endregion
+
 
             }
 
@@ -67,6 +91,11 @@ namespace PersonalExpenses.Views
                 return false;
             }
             return true;
+        }        
+
+        private async void AboutBtn_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AboutPage());
         }
     }
 }
